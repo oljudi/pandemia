@@ -1,0 +1,12 @@
+.jumbotron {
+    margin-bottom: 0px;
+    height: 100%;
+    background-image: url(src\assets\home.jpg);
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    text-shadow: black 0.3em 0.3em 0.3em;
+    filter: contrast(0.600);
+    max-width: 100%;
+}
