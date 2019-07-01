@@ -29,7 +29,7 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
     NbLayoutModule,
     HttpClientModule,
     HttpClientJsonpModule
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
