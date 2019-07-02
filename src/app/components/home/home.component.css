@@ -1,12 +1,124 @@
 .jumbotron {
     margin-bottom: 0px;
-    height: 100%;
+    height: 50%;
     background-image: url(src\assets\home.jpg);
-    background-position: 0% 25%;
+    background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
-    text-shadow: black 0.3em 0.3em 0.3em;
-    filter: contrast(0.600);
     max-width: 100%;
+}
+
+.cuadro_intro_hover {
+    padding: 0px;
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+
+.cuadro_intro_hover:hover .caption {
+    opacity: 1;
+    transform: translateY(-150px);
+    -webkit-transform: translateY(-150px);
+    -moz-transform: translateY(-150px);
+    -ms-transform: translateY(-150px);
+    -o-transform: translateY(-150px);
+}
+
+.cuadro_intro_hover img {
+    z-index: 4;
+}
+
+.cuadro_intro_hover .caption {
+    position: absolute;
+    top: 150px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+}
+
+.cuadro_intro_hover .blur {
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 300px;
+    z-index: 5;
+    position: absolute;
+    width: 100%;
+}
+
+.cuadro_intro_hover .caption-text {
+    z-index: 10;
+    color: #fff;
+    position: absolute;
+    height: 300px;
+    text-align: center;
+    top: -20px;
+    width: 100%;
+}
+
+.blog .carousel-indicators {
+    left: 0;
+    top: auto;
+    bottom: -40px;
+}
+
+
+/* The colour of the indicators */
+
+.blog .carousel-indicators li {
+    background: #a3a3a3;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+}
+
+.blog .carousel-indicators .active {
+    background: #707070;
+}
+
+.card {
+    margin: 0 auto;
+}
+
+.card .carousel-item {
+    height: 200px;
+}
+
+.card .carousel-caption {
+    padding: 0;
+    right: 0;
+    left: 0;
+    color: #3d3d3d;
+}
+
+.card .carousel-caption h3 {
+    color: #3d3d3d;
+}
+
+.card .carousel-caption p {
+    line-height: 30px;
+}
+
+.card .carousel-caption .col-sm-3 {
+    display: flex;
+    align-items: center;
+}
+
+.card .carousel-caption .col-sm-9 {
+    text-align: left;
+}
+
+.navi a {
+    text-decoration: none;
+}
+
+a>.ico {
+    background-color: grey;
+    padding: 10px;
+}
+
+a:hover>.ico {
+    background-color: #666;
 }

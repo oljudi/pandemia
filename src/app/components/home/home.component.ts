@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as $ from 'jquery';
 import { FormControl, Validators } from '@angular/forms';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
@@ -17,26 +18,36 @@ interface MailChimpResponse {
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-correo: string;
-Tel: string;
-nombre: string;
-Tipo: string;
-ngOnInit() {
-}
-}
-/*  submit({value}: {value: MailChimpResponse}) {
-    //Folio y tipo de servicio
-        value.email = this.correo;
-        value.tipo = this.Tipo;
-        value.tel = this.Tel;
-        value.nom = this.nombre;
-       // var Mailchimp = require('mailchimp-api-v3')
- 
-var mailchimp = new Mailchimp('6548947e8958e62652b6ecc737ad9c29-us3');
+  correo: string;
+  Tel: string;
+  nombre: string;
+  Tipo: string;
+
+  public ngOnInit() {
+    $(document).ready(function() {
+      $('#myCarousel').on('slide.bs.carousel', function(e) {
+        var $e = $(e.relatedTarget);
+        var idx = $e.index();
+        var itemsPerSlide = 3;
+        var totalItems = $('.carousel-item').length;
+    
+        if (idx >= totalItems - (itemsPerSlide - 1)) {
+          var it = itemsPerSlide - (totalItems - idx);
+          for (var i = 0; i < it; i++) {
+            // append slides to end
+            if (e.direction == 'left') {
+              $('.carousel-item')
+                .eq(i)
+                .appendTo('.carousel-inner');
+            } else {
+              $('.carousel-item')
+                .eq(0)
+                .appendTo($(this).find('.carousel-inner'));
+            }
+          }
+        }
+      });
+    });
 
   }
-
-  
 }
-//"https://hotmail.us3.list-manage.com/subscribe/post?u=076eb09f333c5f0533346ed64&amp;id=26ca01b10f"
-*/
