@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import * as $ from 'jquery';
 import { FormControl, Validators } from '@angular/forms';
 import { HttpClient, HttpParams } from '@angular/common/http';
@@ -22,7 +22,8 @@ export class HomeComponent implements OnInit {
   Tel: string;
   nombre: string;
   Tipo: string;
-
+  buttons: boolean;
+  topbutton: boolean;
   public ngOnInit() {
     $(document).ready(function() {
       $('#myCarousel').on('slide.bs.carousel', function(e) {
@@ -50,4 +51,9 @@ export class HomeComponent implements OnInit {
     });
 
   }
+  @HostListener('window:scroll', ['$event']) onScrollEvent($event){
+    console.log("scrolling");
+    this.buttons = false;
+    this.topbutton = true;
+  } 
 }
