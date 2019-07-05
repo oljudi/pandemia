@@ -24,7 +24,10 @@ export class HomeComponent implements OnInit {
   Tipo: string;
   buttons: boolean;
   topbutton: boolean;
+ 
   public ngOnInit() {
+    this.buttons = true;
+    this.topbutton = false; 
     $(document).ready(function() {
       $('#myCarousel').on('slide.bs.carousel', function(e) {
         var $e = $(e.relatedTarget);
@@ -52,8 +55,13 @@ export class HomeComponent implements OnInit {
 
   }
   @HostListener('window:scroll', ['$event']) onScrollEvent($event){
-    console.log("scrolling");
     this.buttons = false;
     this.topbutton = true;
+if (window.pageYOffset == 0){
+  this.buttons = true;
+    this.topbutton = false; 
+
+}
+
   } 
 }
