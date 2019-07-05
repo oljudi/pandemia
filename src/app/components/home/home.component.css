@@ -27,6 +27,21 @@
     width: 2000px;
 }
 
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 55px;
+  color: black;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 55px;
+  align-items: center;
+  color: black;
+}
+
 .cuadro_intro_hover {
     padding: 0px;
     position: relative;
@@ -44,7 +59,7 @@
 }
 
 .cuadro_intro_hover img {
-    z-index: 4;
+    z-index: 6;
 }
 
 .cuadro_intro_hover .caption {
@@ -112,6 +127,14 @@
 .card .carousel-caption h3 {
     color: #3d3d3d;
 }
+.vl {
+    border-left: 6px solid green;
+    height: 500px;
+    position: absolute;
+    left: 50%;
+    margin-left: -3px;
+    top: 0;
+  }
 
 .card .carousel-caption p {
     line-height: 30px;
