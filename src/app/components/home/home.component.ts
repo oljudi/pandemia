@@ -26,6 +26,34 @@ export class HomeComponent implements OnInit {
   topbutton: boolean;
  
   public ngOnInit() {
+
+  document.querySelectorAll('a[href^="#blog"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+document.querySelectorAll('a[href^="#contacto"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    });
+     
+      
+      });
+  });
+
+
+    
+  
+ 
     this.buttons = true;
     this.topbutton = false; 
     $(document).ready(function() {
@@ -54,6 +82,7 @@ export class HomeComponent implements OnInit {
     });
 
   }
+  
   @HostListener('window:scroll', ['$event']) onScrollEvent($event){
     this.buttons = false;
     this.topbutton = true;
