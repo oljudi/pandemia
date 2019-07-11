@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg fixed-top" style="background-color: white; padding:0;">
+<nav class="navbar navbar-expand-lg fixed-top" style="background-color: white; padding:0;" id="contacto">
     <a class="navbar-brand" style="font-size: 2.2em"><strong>Pandemia</strong> <span class="font-color-gold"> Digital</span></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarPandemia" aria-controls="navbarPandemia" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -9,10 +9,19 @@
         </ul>
         <ul class="nav-list">
                 <li class="nav-list-item">
+                    <a href="https://www.facebook.com/DigitalPandemia/"> 
                         <i *ngIf="topbutton == true"  class="fa fa-facebook fa-1x" aria-hidden="true" style="color: black; font-weight: bold"></i>&nbsp;
+                    </a>
+                    <a href="https://twitter.com/DigitalPandemia">
                         <i *ngIf="topbutton == true" class="fa fa-twitter fa-1x" aria-hidden="true" style="color: black; font-weight: bold"></i>&nbsp;
+                    </a>
+                    <a href="https://www.instagram.com/pandemia_digital/">
                         <i *ngIf="topbutton == true" class="fa fa-instagram fa-1x" aria-hidden="true" style="color: black; font-weight: bold"></i>&nbsp;
-                        <i *ngIf="topbutton == true" class="fa fa-linkedin fa-1x" aria-hidden="true" style="color: black; font-weight: bold"></i>                    </li>
+                    </a>
+                    <a href="https://www.linkedin.com/company/pandemia-d/?viewAsMember=true">
+                        <i *ngIf="topbutton == true" class="fa fa-linkedin fa-1x" aria-hidden="true" style="color: black; font-weight: bold"></i>                    
+                    </a>
+                    </li>
             <li class="nav-list-item">
                 <a href="#contacto" class="nav-link">Contacto</a>
             </li>
@@ -77,19 +86,27 @@
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-8 text-center" >
-                <i *ngIf="buttons == true"  class="fa fa-facebook fa-1x" aria-hidden="true" style="color: black; font-weight: bold"></i>&nbsp;
-                <i *ngIf="buttons == true" class="fa fa-twitter fa-1x" aria-hidden="true" style="color: black; font-weight: bold"></i>&nbsp;
-                <i *ngIf="buttons == true" class="fa fa-instagram fa-1x" aria-hidden="true" style="color: black; font-weight: bold"></i>&nbsp;
-                <i *ngIf="buttons == true" class="fa fa-linkedin fa-1x" aria-hidden="true" style="color: black; font-weight: bold"></i>
+                    <a href="https://www.facebook.com/DigitalPandemia/"> 
+                        <i class="fa fa-facebook fa-1x" aria-hidden="true" style="color: black; font-weight: bold"></i>&nbsp;
+                    </a>
+                    <a href="https://twitter.com/DigitalPandemia">
+                        <i class="fa fa-twitter fa-1x" aria-hidden="true" style="color: black; font-weight: bold"></i>&nbsp;
+                    </a>
+                    <a href="https://www.instagram.com/pandemia_digital/">
+                        <i class="fa fa-instagram fa-1x" aria-hidden="true" style="color: black; font-weight: bold"></i>&nbsp;
+                    </a>
+                    <a href="https://www.linkedin.com/company/pandemia-d/?viewAsMember=true">
+                        <i class="fa fa-linkedin fa-1x" aria-hidden="true" style="color: black; font-weight: bold"></i>                    
+                    </a>
             </div>
-            <div class="col-md-2"></div>
+            <div class="col-md-2" id="blog"></div>
         </div>
     </div>
 </div>
 <br>
 
 <!-- BLOG -->
-<div class="container-blog">
+<div class="container-blog" >
     <div class="row">
             <p class="text-left ml-5 pl-2" id="blog" style="font-size: 1.9em; font-family: 'Athelas Regular'"><strong style="color: #df9941">B</strong>log
             </p>
@@ -242,7 +259,7 @@
             
         </div>
         
-        <div class="arrows-carrousel "> <a class="carousel-control-next" href="#Carousel" role="button" data-slide="next">
+        <div class="arrows-carrousel"> <a class="carousel-control-next" href="#Carousel" role="button" data-slide="next">
                 <span class="carousel-control-next-icon " aria-hidden="true" ></span>
                 <span class="sr-only">Next</span>
             </a>
