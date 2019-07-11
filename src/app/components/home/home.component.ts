@@ -57,11 +57,11 @@ export class HomeComponent implements OnInit {
   @HostListener('window:scroll', ['$event']) onScrollEvent($event){
     this.buttons = false;
     this.topbutton = true;
-if (window.pageYOffset == 0){
-  this.buttons = true;
-    this.topbutton = false; 
+    if (window.pageYOffset < 100) {
+      this.buttons = true;
+      this.topbutton = false; 
 
-}
+    }
 
   } 
 }

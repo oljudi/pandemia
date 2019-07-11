@@ -1,10 +1,15 @@
 @font-face {
-    font-family: 'Athelas Regular';
+    font-family: 'Athelas Bold';
     font-style: normal;
     font-weight: normal;
     src: url('assets/Fuentes/Athelas-Bold.woff') format('woff');
 }
-
+@font-face {
+    font-family: 'Athelas Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: url('assets/Fuentes/Athelas-Regular.woff') format('woff');
+}
 * {
     box-sizing: border-box;
     margin: 0;
