@@ -1,8 +1,8 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import * as $ from 'jquery';
-import { FormControl, Validators } from '@angular/forms';
-import { HttpClient, HttpParams } from '@angular/common/http';
 import { BloggerService } from 'src/app/servicios/blogger.service';
+import { Post } from 'src/app/models/post';
+
 interface MailChimpResponse {
   result: string;
   msg: string;
@@ -25,38 +25,19 @@ export class HomeComponent implements OnInit {
   buttons: boolean;
   topbutton: boolean;
 
-
-  Titulo1: string;
-  Titulo2: string;
-  Titulo3: string;
-  Titulo4: string;
-  Titulo5: string;
-  Titulo6: string;
-  Titulo7: string;
-  Titulo8: string;
-
-  parr1: string;
-  parr2: string;
-  parr3: string;
-  parr4: string;
-  parr5: string;
-  parr6: string;
-  parr7: string;
-  parr8: string;
-
-  img1: string;
-  img2: string;
-  img3: string;
-  img4: string;
-  img5: string;
-  img6: string;
-  img7: string;
-  img8: string;
-
+  post: Post = {
+  autor: "",
+  contenido: "",
+  fechapub: "",
+  imagen: "",
+  resumen: "",
+  titulo: ""
+  };
 
   blog: any[] = []; 
 
   blog2: any[] = []; 
+  numpost:number;
 
   constructor(
     protected blogger: BloggerService
@@ -84,56 +65,31 @@ export class HomeComponent implements OnInit {
   
         });
     });
+
+
     this.blogger.getUsers()
     .subscribe(
       (data: any) => {
          this.blog = data['results'];
-       
-        this.Titulo1 = data.items[0].title;
-        this.img1 = data.items[0].images[0].url;
-        this.parr1 = data.items[0].published + " " + data.items[0].url;
-
-        this.Titulo2 = data.items[1].title;
-        this.img2 = data.items[1].images[0].url;
-        this.parr2 = data.items[1].published + " " + data.items[1].url ;
-
-        this.Titulo3 = data.items[2].title;
-        this.img3 = data.items[2].images[0].url;
-        this.parr3 = data.items[2].published + " " + data.items[2].url;
-
-        this.Titulo4 = data.items[3].title;
-        this.img4 = data.items[3].images[0].url;
-        this.parr4 = data.items[3].published + " " + data.items[3].url;
-
-        this.Titulo5 = data.items[4].title;
-        this.img5 = data.items[4].images[0].url;
-        this.parr5 = data.items[4].published + " " + data.items[4].url;
-
-        this.Titulo6 = data.items[5].title;
-        this.img6 = data.items[5].images[0].url;
-        this.parr6 = data.items[5].published + " " + data.items[5].url;
-        
-        this.Titulo7 = data.items[6].title;
-        this.img7 = data.items[6].images[0].url;
-        this.parr7 = data.items[6].published + " " + data.items[6].url;
-
-        this.Titulo8 = data.items[7].title;
-        this.img8 = data.items[7].images[0].url;
-        this.parr8 = data.items[7].published + " " + data.items[7].url;
-
-  
-                
-
-      
-    /*    <div id="content"></div>
-        <script>
-          function handleResponse(response) {
-            document.getElementById("content").innerHTML += "<h1>" + response.title + "</h1>" + response.content;
-          }
-        </script>
-        <script
-        src="https://www.googleapis.com/blogger/v2/blogs/3213900/posts/8398240586497962757?callback=handleResponse&key=YOUR-API-KEY"></script>
-  */
+       this.numpost = data.items.length;
+        for(var i=0; i <= this.numpost ;i++){
+          this.post[i] = data.items[i].title;
+          // this.Titulo[i] = data.items[i].title;
+          // this.img[i] = data.items[i].images[0].url;
+          // this.res[i] = data.items[i].author.displayName + data.items[i].published;
+          // this.pas[i] = data.items[i].content;
+          // var contenido = this.pas[i];
+          // var texto = $(contenido).text();
+          // var someText = texto.replace(/(\r\n\r\n|\n\n|\r\r)/gm, "");
+          // var caract = someText.length;
+          // if (caract>120) {
+          //   var someText2 = someText.substring(0,120);
+          //   this.parr[i] = someText2+"...";
+          // }else{
+          //   var someText2 = someText.substring(0,caract);
+          //   this.parr[i] = someText2+"...";
+          // }
+        }
        },
     (error) => {
       console.error(error);
