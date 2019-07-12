@@ -130,13 +130,19 @@
                             <div class="col-md-3">
                                     <div class="cuadro_intro_hover" style="background-color:#cccccc;">
                                             <p>
-                                                <img src="https://picsum.photos/400/350" class="img-responsive" alt="Image" style="max-width:100%;">
+                                                <img src="{{img1}}" class="img-responsive" alt="Image" style="max-width:100%;">
                                             </p>
                                             <div class="caption">
                                                 <div class="blur"></div>
-                                                <div class="caption-text">
-                                                    <h2 style="" class="caption-title">Titulo 1</h2>
-                                                    <p>Loren ipsum dolor si amet ipsum dolor si amet ipsum dolor...</p>
+                                                <div class="caption-text" id="content">
+                                                    <h2  class="caption-title">{{Titulo1}}</h2>
+                                                    <script>
+                                                        function handleResponse(response) {
+                                                            document.getElementById("content").innerHTML += "<h1>" + response.title + "</h1>" + response.content;
+                                                        }
+                                                    </script>
+                                                    <script
+                                                    src="{{parr1}}"></script>
                                                 </div>
                                             </div>
                                         </div>
@@ -150,8 +156,8 @@
                                             <div class="caption">
                                                 <div class="blur"></div>
                                                 <div class="caption-text">
-                                                    <h2 style="" class="caption-title">Titulo 2</h2>
-                                                    <p>Loren ipsum dolor si amet ipsum dolor si amet ipsum dolor...</p>
+                                                    <h2 style="" class="caption-title">{{Titulo2}}</h2>
+                                                    {{parr2}}
                                                 </div>
                                             </div>
                                         </div>

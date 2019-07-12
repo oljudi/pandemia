@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import * as $ from 'jquery';
 import { FormControl, Validators } from '@angular/forms';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { BloggerService } from 'src/app/servicios/blogger.service';
 
 interface MailChimpResponse {
   result: string;
@@ -24,7 +25,27 @@ export class HomeComponent implements OnInit {
   Tipo: string;
   buttons: boolean;
   topbutton: boolean;
- 
+
+  Titulo1: string;
+  Titulo2: string;
+  Titulo3: string;
+  Titulo4: string;
+  parr1: string;
+  parr2: string;
+  parr3: string;
+  img1: string;
+  post: string;
+
+
+  blog: any[] = []; 
+
+  blog2: any[] = []; 
+
+  constructor(
+    protected blogger: BloggerService
+  ) {
+  }
+
   public ngOnInit() {
 
   document.querySelectorAll('a[href^="#blog"]').forEach(anchor => {
@@ -49,11 +70,39 @@ document.querySelectorAll('a[href^="#contacto"]').forEach(anchor => {
       
       });
   });
-
-
+  this.blogger.getUsers()
+  .subscribe(
+    (data) => {
+       this.blog = data['results'];
+       console.log(data.items[0].title, data.items[0]); 
+      this.Titulo1 = data.items[0].title;
+      this.img1 = data.items[0].images[0].url;
+      this.Titulo2 = data.items[0].title;
+      this.parr2 = data.items[0].published + " " + data.items[0].url + data.items[0].displayName;
     
-  
+      this.post = data.items[0].selfLink;
+
+      this.parr1 = this.post+"?callback=handleResponse&key=AIzaSyDaUvpKswFphlKWBAdQOF-AqpCCaaDRSjk";
+
+      
+      console.log(this.post+"?callback=handleResponse&key=AIzaSyDaUvpKswFphlKWBAdQOF-AqpCCaaDRSjk");
+      
+  /*    <div id="content"></div>
+      <script>
+        function handleResponse(response) {
+          document.getElementById("content").innerHTML += "<h1>" + response.title + "</h1>" + response.content;
+        }
+      </script>
+      <script
+      src="https://www.googleapis.com/blogger/v2/blogs/3213900/posts/8398240586497962757?callback=handleResponse&key=YOUR-API-KEY"></script>
+*/
+     },
+  (error) => {
+    console.error(error);
+  }
+  );
  
+
     this.buttons = true;
     this.topbutton = false; 
     $(document).ready(function() {
