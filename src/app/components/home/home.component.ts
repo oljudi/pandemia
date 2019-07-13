@@ -18,6 +18,7 @@ interface MailChimpResponse {
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
   correo: string;
   Tel: string;
   nombre: string;
@@ -25,24 +26,21 @@ export class HomeComponent implements OnInit {
   buttons: boolean;
   topbutton: boolean;
 
-  post: Post = {
-  autor: "",
-  contenido: "",
-  fechapub: "",
-  imagen: "",
-  resumen: "",
-  titulo: ""
-  };
+  posts: Post[] = [];
 
-  blog: any[] = []; 
+  posts1: Post[] = [];
+  posts2: Post[] = [];
 
-  blog2: any[] = []; 
-  numpost:number;
+  blog2: any[] = [];
+
+  activeCarusel2 = false;
+
+  numpost: number;
 
   constructor(
     protected blogger: BloggerService
-  ) {
-  }
+  ) {}
+
   public ngOnInit() {
 
     document.querySelectorAll('a[href^="#blog"]').forEach(anchor => {
@@ -53,53 +51,57 @@ export class HomeComponent implements OnInit {
           });
       });
   });
-  document.querySelectorAll('a[href^="#contacto"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+    document.querySelectorAll('a[href^="#contacto"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
         e.preventDefault();
         window.scroll({
           top: 0,
           left: 0,
           behavior: 'smooth'
-      });
-       
-  
         });
+      });
     });
 
 
-    this.blogger.getUsers()
-    .subscribe(
-      (data: any) => {
-         this.blog = data['results'];
-       this.numpost = data.items.length;
-        for(var i=0; i <= this.numpost ;i++){
-          this.post[i] = data.items[i].title;
-          // this.Titulo[i] = data.items[i].title;
-          // this.img[i] = data.items[i].images[0].url;
-          // this.res[i] = data.items[i].author.displayName + data.items[i].published;
-          // this.pas[i] = data.items[i].content;
-          // var contenido = this.pas[i];
-          // var texto = $(contenido).text();
-          // var someText = texto.replace(/(\r\n\r\n|\n\n|\r\r)/gm, "");
-          // var caract = someText.length;
-          // if (caract>120) {
-          //   var someText2 = someText.substring(0,120);
-          //   this.parr[i] = someText2+"...";
-          // }else{
-          //   var someText2 = someText.substring(0,caract);
-          //   this.parr[i] = someText2+"...";
-          // }
+    this.blogger.getPosts()
+        .subscribe(
+          (data: any) => {
+            this.posts = data.items;
+            console.log('Posts: ', this.posts );
+            if ( this.posts.length ) {
+              for (let index = 0; index <= 3; index++) {
+                if ( this.posts[index] != null ) {
+                  this.posts1.push(this.posts[index]);
+                } else {
+                  console.log('No se creo arreglo 1.' + index);
+                }
+              }
+              for (let index = 4; index <= 7; index++) {
+                if ( this.posts[index] != null ) {
+                  this.activeCarusel2 = true;
+                  this.posts2.push(this.posts[index]);
+                } else {
+                  console.log('No se creo arreglo 2.' + index);
+
+                }
+              }
+            } else {
+              console.log('no hay nada en el blog');
+            }
+
+          },
+        (error) => {
+          console.error(error);
         }
-       },
-    (error) => {
-      console.error(error);
-    }
     );
-  
-  
-      this.buttons = true;
-      this.topbutton = false; 
-      $(document).ready(function() {
+    
+    console.log('primer carusel', this.posts1);
+    console.log('segundo carusel', this.posts2);
+
+
+    this.buttons = true;
+    this.topbutton = false; 
+    $(document).ready(function() {
         $('#myCarousel').on('slide.bs.carousel', function(e) {
           var $e = $(e.relatedTarget);
           var idx = $e.index();

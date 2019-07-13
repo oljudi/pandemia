@@ -105,229 +105,89 @@
 <br>
 
 <!-- BLOG -->
-    <div class="container-blog">
-        <div class="row">
-            <p class="text-left ml-5 pl-2" style="font-size: 1.9em; font-family: 'Athelas Regular'"><strong style="color: #df9941">B</strong>log
-            </p>
+
+<div class="container-blog">
+    <div class="row">
+        <p class="text-left ml-5 pl-2" style="font-size: 1.9em; font-family: 'Athelas Regular'"><strong style="color: #df9941">B</strong>log
+        </p>
+    </div>
+    <div class="blog blog-carroussel">
+        <div class="arrows-carrousel">
+            <a class="carousel-control-prev" href="#Carousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
         </div>
-        <div class="blog blog-carroussel">
-            <div class="arrows-carrousel">
-                <a class="carousel-control-prev" href="#Carousel" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-            </div>
-            <div class="">
-                <div id="Carousel" class="carousel slide" data-ride="carousel">
-                    <!-- Carousel items -->
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="cuadro_intro_hover" style="background-color:#cccccc;">
-                                        <p>
-                                            <img src="{{img1}}" class="img-fluid" alt="ImagePost1" style="max-width:100%;">
-                                        </p>
-                                        <div class="caption">
-                                            <div class="blur"></div>
-                                                <div class="caption-text" >
-                                                    <h2 class="caption-title">{{Titulo1}}</h2>
-                                                    <div class="container">
-                                                            {{ res1 }}
-                                                    </div>
-                                                    <p>
-                                                        <br>
-                                                        <a id="Post1" class="btn btn-link" href="{{ url1 }}" target="_blank" role="button" style="color: white; font-weight: bold;">Ver mas...</a>
-                                                        <br>
-                                                        <small>Autor: {{ author1 | uppercase }}</small>
-                                                        <br>
-                                                        <small>Publicado: {{ published1 | date:"dd/MM/yy" }}</small>
-                                                    </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="cuadro_intro_hover" style="background-color:#cccccc;">
-                                        <p>
-                                            <img src="{{img2}}" class="img-responsive" alt="ImagePost2" style="max-width:100%;">
-                                        </p>
-                                        <div class="caption">
-                                            <div class="blur"></div>
-                                            <div class="caption-text">
-                                                <h2 class="caption-title">{{Titulo2}}</h2>
-                                                <div class="container">
-                                                        {{ res2 }}
-                                                </div>
+        <div class="">
+            <div id="Carousel" class="carousel slide" data-ride="carousel">
+                <!-- Carousel items -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active text-center">
+                        <div class="row">
+                            <div class="col-md-3" *ngFor="let post of posts1">
+                                <div class="cuadro_intro_hover" style="background-color:#cccccc;">
+                                    <p>
+                                        <img src="{{ post.images[0].url }}" class="img-fluid" alt="ImagePost1" style="max-width:100%;">
+                                    </p>
+                                    <div class="caption">
+                                        <div class="blur"></div>
+                                        <div class="caption-text">
+                                            <h2 class="caption-title">{{ post.title }}</h2>
                                             <p>
-                                                <a id="Post2" class="btn btn-link" href="{{ url2 }}" target="_blank" role="button" style="color: white; font-weight: bold; font-size: 1rem">Ver mas...</a>
                                                 <br>
-                                                <small>Autor: {{ author2 | uppercase }}</small>
+                                                <a id="Post1" class="btn btn-link" href="{{ post.url }}" target="_blank" role="button" style="color: white; font-weight: bold;">Ver mas...</a>
                                                 <br>
-                                                <small>Publicado: {{ published2 | date:"dd/MM/yy" }}</small>
+                                                <small>Autor: {{ post.author.displayName | uppercase }}</small>
+                                                <br>
+                                                <small>Publicado: {{ post.updated | date:"dd/MM/yy" }}</small>
                                             </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="cuadro_intro_hover" style="background-color:#cccccc;">
-                                        <p>
-                                            <img src="{{img3}}" class="img-responsive" alt="Image" style="max-width:100%;">
-                                        </p>
-                                        <div class="caption">
-                                            <div class="blur"></div>
-                                            <div class="caption-text">
-                                                <h2 class="caption-title">{{Titulo3}}</h2>
-                                                <div class="container">
-                                                        {{ res3 }}
-                                                </div>
-                                                <p>
-                                                    <a id="Post3" class="btn btn-link" href="{{ url3 }}" target="_blank" role="button" style="color: white; font-weight: bold; font-size: 1rem">Ver mas...</a>
-                                                    <br>
-                                                    <small>Autor: {{ author3 | uppercase }}</small>
-                                                    <br>
-                                                    <small>Publicado: {{ published3 | date:"dd/MM/yy" }}</small>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="cuadro_intro_hover" style="background-color:#cccccc;">
-                                        <p>
-                                            <img src="{{img4}}" class="img-responsive" alt="Image" style="max-width:100%;">
-                                        </p>
-                                        <div class="caption">
-                                            <div class="blur"></div>
-                                            <div class="caption-text">
-                                                <h2 class="caption-title">{{Titulo4}}</h2>
-                                                <div class="container">
-                                                        {{ res4 }}
-                                                </div>
-                                                <p>
-                                                    <a id="Post4" class="btn btn-link" href="{{ url4 }}" target="_blank" role="button" style="color: white; font-weight: bold; font-size: 1rem">Ver mas...</a>
-                                                    <br>
-                                                    <small>Autor: {{ author4 | uppercase }}</small>
-                                                    <br>
-                                                    <small>Publicado: {{ published4 | date:"dd/MM/yy" }}</small>
-                                                </p>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!--.row-->
                         </div>
-                        <!--.item-->
-                        <div class="carousel-item">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="cuadro_intro_hover" style="background-color:#cccccc;">
-                                        <p>
-                                            <img src="{{img5}}" class="img-responsive" alt="Image" style="max-width:100%;">
-                                        </p>
-                                        <div class="caption">
-                                            <div class="blur"></div>
-                                            <div class="caption-text">
-                                                <h3 class="caption-title">{{Titulo5}}</h3>
-                                                <div class="container">
-                                                        {{ res5 }}
-                                                </div>
-                                                <p>
-                                                    <a id="Post5" class="btn btn-link" href="{{ url5 }}" target="_blank" role="button" style="color: white; font-weight: bold; font-size: 1rem">Ver mas...</a>
-                                                    <br>
-                                                    <small>Autor: {{ author5 | uppercase }}</small>
-                                                    <br>
-                                                    <small>Publicado: {{ published5 | date:"dd/MM/yy" }}</small>
-                                                </p>
-                                            </div>
+                        <!--.row-->
+                    </div>
+                    <!--.item-->
+                    <div class="carousel-item" *ngIf="activeCarusel2">
+                        <div class="row">
+                            <div class="col-md-3" *ngFor="let post of posts2">
+                                <div class="cuadro_intro_hover" style="background-color:#cccccc;">
+                                    <p>
+                                        <img src="{{ post.images[0].url }}" class="img-fluid" alt="ImagePost1" style="max-width:100%;">
+                                    </p>
+                                    <div class="caption">
+                                        <div class="blur"></div>
+                                        <div class="caption-text">
+                                            <h2 class="caption-title">{{ post.title }}</h2>
+                                            <p>
+                                                <br>
+                                                <a id="Post1" class="btn btn-link" href="{{ post.url }}" target="_blank" role="button" style="color: white; font-weight: bold;">Ver mas...</a>
+                                                <br>
+                                                <small>Autor: {{ post.author.displayName | uppercase }}</small>
+                                                <br>
+                                                <small>Publicado: {{ post.updated | date:"dd/MM/yy" }}</small>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
-                                        <div class="cuadro_intro_hover" style="background-color:#cccccc;">
-                                            <p>
-                                                <img src="{{img6}}" class="img-responsive" alt="Image" style="max-width:100%;">
-                                            </p>
-                                            <div class="caption">
-                                                <div class="blur"></div>
-                                                <div class="caption-text">
-                                                    <h3 class="caption-title">{{Titulo6}}</h3>
-                                                    <div class="container">
-                                                            {{ res6 }}
-                                                    </div>
-                                                    <p>
-                                                        <a id="Post6" class="btn btn-link" href="{{ url6 }}" target="_blank" role="button" style="color: white; font-weight: bold; font-size: 1rem">Ver mas...</a>
-                                                        <br>
-                                                        <small>Autor: {{ author6 | uppercase }}</small>
-                                                        <br>
-                                                        <small>Publicado: {{ published6 | date:"dd/MM/yy" }}</small>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="cuadro_intro_hover" style="background-color:#cccccc;">
-                                            <p>
-                                                <img src="{{img7}}" class="img-responsive" alt="Image" style="max-width:100%;">
-                                            </p>
-                                            <div class="caption">
-                                                <div class="blur"></div>
-                                                <div class="caption-text">
-                                                    <h3 class="caption-title">{{Titulo7}}</h3>
-                                                    <div class="container">
-                                                            {{ res7 }}
-                                                    </div>
-                                                    <p>
-                                                        <a id="Post6" class="btn btn-link" href="{{ url7 }}" target="_blank" role="button" style="color: white; font-weight: bold; font-size: 1rem">Ver mas...</a>
-                                                        <br>
-                                                        <small>Autor: {{ author7 | uppercase }}</small>
-                                                        <br>
-                                                        <small>Publicado: {{ published7 | date:"dd/MM/yy" }}</small>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="cuadro_intro_hover" style="background-color:#cccccc;">
-                                            <p>
-                                                <img src="{{img8}}" class="img-responsive" alt="Image" style="max-width:100%;">
-                                            </p>
-                                            <div class="caption">
-                                                <div class="blur"></div>
-                                                <div class="caption-text">
-                                                    <h3 class="caption-title">{{Titulo8}}</h3>
-                                                    <div class="container">
-                                                            {{ res8 }}
-                                                    </div>
-                                                    <p>
-                                                        <a id="Post6" class="btn btn-link" href="{{ url6 }}" target="_blank" role="button" style="color: white; font-weight: bold; font-size: 1rem">Ver mas...</a>
-                                                        <br>
-                                                        <small>Autor: {{ author8 | uppercase }}</small>
-                                                        <br>
-                                                        <small>Publicado: {{ published8 | date:"dd/MM/yy" }}</small>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="arrows-carrousel">
-                <a class="carousel-control-next" href="#Carousel" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon " aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
+        <div class="arrows-carrousel">
+            <a class="carousel-control-next" href="#Carousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon " aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
     </div>
+</div>
+
+<!-- Testimonial -->
 
 <div class="card col-md-12 mt-5 " style="background-color: #eeeeee">
     <div id="Testimonial" class="carousel slide" data-ride="testimonial" data-interval="100000">

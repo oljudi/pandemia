@@ -11,7 +11,7 @@
 .jumbotron-principal {
     margin-bottom: 0px;
     height: calc(100vh);
-    background-image: url(src\assets\home.jpeg);
+    background-image: url(src\assets\home.jpg);
     background-position: center 55%;
     background-size: cover;
     background-repeat: no-repeat;
