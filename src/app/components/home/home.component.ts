@@ -1,7 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import * as $ from 'jquery';
 import { BloggerService } from 'src/app/servicios/blogger.service';
-import { Post } from 'src/app/models/post';
 
 interface MailChimpResponse {
   result: string;
@@ -26,10 +25,10 @@ export class HomeComponent implements OnInit {
   buttons: boolean;
   topbutton: boolean;
 
-  posts: Post[] = [];
+  posts: any[] = [];
 
-  posts1: Post[] = [];
-  posts2: Post[] = [];
+  posts1: any[] = [];
+  posts2: any[] = [];
 
   blog2: any[] = [];
 
@@ -44,7 +43,7 @@ export class HomeComponent implements OnInit {
   public ngOnInit() {
 
     document.querySelectorAll('a[href^="#blog"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
+      anchor.addEventListener('click', function(e) {
           e.preventDefault();
           document.querySelector(this.getAttribute('href')).scrollIntoView({
               behavior: 'smooth'
@@ -52,7 +51,7 @@ export class HomeComponent implements OnInit {
       });
   });
     document.querySelectorAll('a[href^="#contacto"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
+      anchor.addEventListener('click', function(e) {
         e.preventDefault();
         window.scroll({
           top: 0,
@@ -94,25 +93,25 @@ export class HomeComponent implements OnInit {
           console.error(error);
         }
     );
-    
+
     console.log('primer carusel', this.posts1);
     console.log('segundo carusel', this.posts2);
 
 
     this.buttons = true;
-    this.topbutton = false; 
+    this.topbutton = false;
     $(document).ready(function() {
         $('#myCarousel').on('slide.bs.carousel', function(e) {
-          var $e = $(e.relatedTarget);
-          var idx = $e.index();
-          var itemsPerSlide = 3;
-          var totalItems = $('.carousel-item').length;
-      
+          let $e = $(e.relatedTarget);
+          let idx = $e.index();
+          let itemsPerSlide = 3;
+          let totalItems = $('.carousel-item').length;
+
           if (idx >= totalItems - (itemsPerSlide - 1)) {
-            var it = itemsPerSlide - (totalItems - idx);
-            for (var i = 0; i < it; i++) {
+            let it = itemsPerSlide - (totalItems - idx);
+            for (let i = 0; i < it; i++) {
               // append slides to end
-              if (e.direction == 'left') {
+              if (e.direction === 'left') {
                 $('.carousel-item')
                   .eq(i)
                   .appendTo('.carousel-inner');
@@ -126,14 +125,13 @@ export class HomeComponent implements OnInit {
         });
       });
     }
-    
-    @HostListener('window:scroll', ['$event']) onScrollEvent($event){
+
+    @HostListener('window:scroll', ['$event']) onScrollEvent($event) {
       this.buttons = false;
       this.topbutton = true;
       if (window.pageYOffset < 100) {
         this.buttons = true;
-        this.topbutton = false; 
+        this.topbutton = false;
       }
-    } 
+    }
   }
-  

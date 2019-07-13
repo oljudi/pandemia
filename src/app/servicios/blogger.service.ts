@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class BloggerService {
 
   blogIDDiego = '5568244772758701372';
-  ApiKeyDiego = 'AIzaSyB2R4JyED2HV3c2Id95OhL8TEcRHM-rSb8'
+  ApiKeyDiego = 'AIzaSyB2R4JyED2HV3c2Id95OhL8TEcRHM-rSb8';
 
   blogID = '2075395070383193462';
   ApiKey = 'AIzaSyB2R4JyED2HV3c2Id95OhL8TEcRHM-rSb8';
