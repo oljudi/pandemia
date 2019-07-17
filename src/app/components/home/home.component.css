@@ -1,5 +1,17 @@
 /* Estilos de Pagina*/
 
+.imgRedonda {
+    width: 60px;
+    height: 65px;
+}
+
+.imgIcono {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+}
+
 .font-color-gold {
     color: rgb(235, 145, 19);
 }

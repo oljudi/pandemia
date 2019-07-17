@@ -127,7 +127,7 @@
                             <div class="col-md-3" *ngFor="let post of posts1">
                                 <div class="cuadro_intro_hover" style="background-color:#cccccc;">
                                     <p>
-                                        <img src="{{ post.images[0].url }}" class="img-fluid" alt="ImagePost1" style="max-width:100%;">
+                                        <img src="{{ post.images[0].url }}" class="img-fluid" alt="ImagePost1" style="width: 700px; height: 600px;">
                                     </p>
                                     <div class="caption">
                                         <div class="blur"></div>
@@ -198,12 +198,12 @@
                         <div class="col-sm-4 d-flex justify-content-center align-items-center">
                             <div class="d-flex justify-content-center align-items-center">
                                 <div class="mx-3 d-flex align-items-center">
-                                    <img class="img-footer" src="http://via.placeholder.com/200x200" alt="" />
+                                    <img class="img-footer imgRedonda" [src]="testimonios1[0].retratoURL" alt="" />
                                 </div>
                                 <div class="mx-3" style="text-align: left;">
-                                    <i class="fa fa-amazon fa-4x" style="display: flex; justify-content: center; max-height: 50px; font-size: 2.7em;" aria-hidden="true"></i>
-                                    <h3>Selene Olea</h3>
-                                    <h6 style="margin-top: -5px;">CEO Amazon</h6>
+                                    <img [src]="testimonios1[0].iconoURL" class="imgIcono" alt="">
+                                    <h3>{{ testimonios1[0].nombre }}</h3>
+                                    <h6 style="margin-top: -5px;">{{ testimonios1[0].puesto }} {{ testimonios1[0].empresa }}</h6>
                                 </div>
                             </div>
                         </div>
@@ -218,23 +218,23 @@
                         </div>
 
                         <div class="col-sm-7 d-flex align-items-center" style="flex:0 0 62%; max-width: 62%;">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem corrupti dolore minima dignissimos, nulla aperiam asperiores nobis unde, eligendi, earum nam cumque numquam deserunt facere ipsum blanditiis neque doloribus minus.</p>
+                            <p>{{ testimonios1[0].testimonio }}</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item" *ngFor="let testimonio of testimonios2">
                 <div class="carousel-caption">
                     <div class="row">
                         <div class="col-sm-4 d-flex justify-content-center align-items-center">
                             <div class="d-flex justify-content-center align-items-center">
                                 <div class="mx-3 d-flex align-items-center">
-                                    <img class="img-footer" src="http://via.placeholder.com/200x200" alt="" />
+                                    <img class="img-footer imgRedonda" [src]="testimonio.retratoURL" alt="" />
                                 </div>
                                 <div class="mx-3" style="text-align: left;">
-                                    <i class="fa fa-amazon fa-4x" style="display: flex; justify-content: center; max-height: 50px; font-size: 2.7em;" aria-hidden="true"></i>
-                                    <h3>Juan Olea</h3>
-                                    <h6 style="margin-top: -5px;">CEO Amazon</h6>
+                                    <img [src]="testimonio.iconoURL" class="imgIcono" alt="">
+                                    <h3>{{ testimonio.nombre }}</h3>
+                                    <h6 style="margin-top: -5px;">{{ testimonio.puesto }} {{ testimonio.empresa }}</h6>
                                 </div>
                             </div>
                         </div>
@@ -250,39 +250,7 @@
                         </div>
 
                         <div class="col-sm-7 d-flex align-items-center" style="flex:0 0 62%; max-width: 62%;">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem corrupti dolore minima dignissimos, nulla aperiam asperiores nobis unde, eligendi, earum nam cumque numquam deserunt facere ipsum blanditiis neque doloribus minus.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="carousel-caption">
-                    <div class="row">
-                        <div class="col-sm-4 d-flex justify-content-center align-items-center">
-                            <div class="d-flex justify-content-center align-items-center">
-                                <div class="mx-3 d-flex align-items-center">
-                                    <img class="img-footer" src="http://via.placeholder.com/200x200" alt="" />
-                                </div>
-                                <div class="mx-3" style="text-align: left;">
-                                    <i class="fa fa-amazon fa-4x" style="display: flex; justify-content: center; max-height: 50px; font-size: 2.7em;" aria-hidden="true"></i>
-                                    <h3>Selene Olea</h3>
-                                    <h6 style="margin-top: -5px;">CEO Amazon</h6>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-1 w-25" style="flex: 0 0 3%">
-                            <style>
-                                .vl-1 {
-                                    border-left: 3px solid #df9941;
-                                    height: 150px;
-                                }
-                            </style>
-                            <div class="vl-1"></div>
-                        </div>
-
-                        <div class="col-sm-7 d-flex align-items-center" style="flex:0 0 62%; max-width: 62%;">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem corrupti dolore minima dignissimos, nulla aperiam asperiores nobis unde, eligendi, earum nam cumque numquam deserunt facere ipsum blanditiis neque doloribus minus.</p>
+                            <p>{{ testimonio.testimonio }}</p>
                         </div>
                     </div>
                 </div>

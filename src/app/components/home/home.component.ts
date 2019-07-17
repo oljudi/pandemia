@@ -1,6 +1,8 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import * as $ from 'jquery';
 import { BloggerService } from 'src/app/servicios/blogger.service';
+import { PanchoService } from '../../servicios/pancho.service';
+import { Testimonio } from '../../models/testimonio';
 
 interface MailChimpResponse {
   result: string;
@@ -26,9 +28,13 @@ export class HomeComponent implements OnInit {
   topbutton: boolean;
 
   posts: any[] = [];
+  testimonios: Testimonio[] = [];
 
   posts1: any[] = [];
   posts2: any[] = [];
+
+  testimonios1: any[] = [];
+  testimonios2: any[] = [];
 
   blog2: any[] = [];
 
@@ -37,7 +43,8 @@ export class HomeComponent implements OnInit {
   numpost: number;
 
   constructor(
-    protected blogger: BloggerService
+    protected blogger: BloggerService,
+    protected pancho: PanchoService
   ) {}
 
   public ngOnInit() {
@@ -66,7 +73,6 @@ export class HomeComponent implements OnInit {
         .subscribe(
           (data: any) => {
             this.posts = data.items;
-            console.log('Posts: ', this.posts );
             if ( this.posts.length ) {
               for (let index = 0; index <= 3; index++) {
                 if ( this.posts[index] != null ) {
@@ -94,8 +100,22 @@ export class HomeComponent implements OnInit {
         }
     );
 
-    console.log('primer carusel', this.posts1);
-    console.log('segundo carusel', this.posts2);
+    this.pancho.getTestimonial().subscribe( (data:any) => {
+      this.testimonios = data;
+      console.log('Testimonios', this.testimonios );
+      if ( this.testimonios.length ) {
+        for (let index = 0; index < 1; index++) {
+          this.testimonios1.push(this.testimonios[index]);
+        }
+        for (let index = 1; index < this.testimonios.length; index++) {
+          this.testimonios2.push(this.testimonios[index]);
+        }
+      } else {
+        console.log('no hay data');
+      }
+    });
+
+    console.log('Testimonios afuera:', this.testimonios1 );
 
 
     this.buttons = true;
