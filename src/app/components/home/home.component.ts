@@ -144,7 +144,9 @@ export class HomeComponent implements OnInit {
           }
         });
       });
-    }
+     
+   }
+    
 
     @HostListener('window:scroll', ['$event']) onScrollEvent($event) {
       this.buttons = false;
